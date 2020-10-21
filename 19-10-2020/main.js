@@ -3,44 +3,47 @@
 // 30 % thuế thu nhập nếu lương là 15 triệu.
 // 20 % thuế thu nhập nếu lương từ 7 đến 15 triệu.
 // 10 % thuế thu nhập nếu lương dưới 7 triệu.
-const getSalary = (salary) => {
+const getSalary = salary => {
     if (salary >= 15000000) {
         console.log('Thuế thu nhập', salary * 0.3)
-        console.log('Lương ròng   ', salary * 0.7)
+        console.log('Lương ròng', salary * 0.7)
     } else if (salary >= 7000000) {
         console.log('Thuế thu nhập', salary * 0.2)
-        console.log('Lương ròng   ', salary * 0.8)
+        console.log('Lương ròng', salary * 0.8)
     } else {
         console.log('Thuế thu nhập', salary * 0.1)
-        console.log('Lương ròng   ', salary * 0.9)
+        console.log('Lương ròng', salary * 0.9)
     }
 }
 
 // Bài 2
 // Viết chương trình nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10. Biết tuổi vào lớp 10 của học sinh là 16.
-const checkAge = (age) => {
+const isBelongtoHighSchool = age => {
     if (age >= 16) {
-        console.log('Đủ điều kiện vào lớp 10')
+        return true
     } else {
-        console.log('Chưa đủ điều kiện vào lớp 10')
+        return false
     }
 }
 
 // Bài 3
 // Viết chương trình nhập một số nguyên bất kỳ và in kết quả ra màn hình để thông báo cho người dùng biết số đó lớn hay nhỏ hơn 100.
-const checkNumber = (number) => {
+const checkNumber = number => {
     if (number > 100) {
         console.log('Số đã nhập lớn hơn 100')
-    } else if (number < 100) {
-        console.log('Số đã nhập nhỏ hơn 100')
-    } else {
+    }
+    if (number == 100) {
         console.log('Số đã nhập là 100')
     }
+    if (number < 100) {
+        console.log('Số đã nhập nhỏ hơn 100')
+    }
+
 }
 
 // Bài 4
 // Viết chương trình nhập vào 3 số nguyên và tìm số lớn nhất trong 3 số đó.
-const maxNumber = (firstNumber, secondNumber, thirdNumber) => {
+const getMaxNumber = (firstNumber, secondNumber, thirdNumber) => {
     let max = firstNumber
     if (max < secondNumber) {
         max = secondNumber
@@ -58,7 +61,7 @@ const maxNumber = (firstNumber, secondNumber, thirdNumber) => {
 // Điểm trung bình >= 5.0 và < 7.0 là hạng C
 // Điểm trung bình < 5.0 là hạng F
 const getRank = (score1, score2, score3) => {
-    let score = (score1 + score2 + score3) / 3;
+    const score = (score1 + score2 + score3) / 3;
     if (score >= 9) {
         console.log('Hạng A')
     } else if (score >= 7) {
@@ -78,17 +81,9 @@ const getRank = (score1, score2, score3) => {
 // Nếu không, phương trình có hai nghiệm, dùng công thức tính nghiệm để tính.
 const solveEquation = (a, b, c) => {
     if (a == 0) {
-        if (b == 0) {
-            if (c == 0) {
-                console.log('Phương trình có vô số nghiệm')
-            } else {
-                console.log('Phương trình vô nghiệm')
-            }
-        } else {
-            console.log('Phương trình có nghiệm duy nhất x=', -c / b)
-        }
+        console.log('Đây không phải phương trình bậc 2')
     } else {
-        delta = b * b - 4 * a * c;
+        const delta = b * b - 4 * a * c;
         if (delta > 0) {
             console.log('Phương trình có 2 nghiệm phân biệt x1 =', (-b + Math.sqrt(delta)) / 2 / a, 'và x2 =', (-b - Math.sqrt(delta)) / 2 / a)
         } else if (delta == 0) {
@@ -104,7 +99,7 @@ const solveEquation = (a, b, c) => {
 // 5 % nếu tổng doanh số nhỏ hơn hoặc bằng 100 triệu.
 // 10 % nếu tổng doanh số nhỏ hơn hoặc bằng 300 triệu.
 // 20 % nếu tổng doanh số là lớn hơn 300 triệu.Hãy viết chương trình JS để tính hoa hồng bạn sẽ nhận được dựa trên doanh số bán hàng.
-const getCommission = (sales) => {
+const getCommission = sales => {
     if (sales <= 100) {
         console.log('Tiền hoa hồng:', sales * 0.05, 'triệu')
     } else if (sales <= 300) {
@@ -120,14 +115,14 @@ const getCommission = (sales) => {
 // 600 đồng cho mỗi phút gọi của 50 phút đầu tiên.
 // 400 đồng cho mỗi phút gọi của 150 phút tiếp theo.
 // 200 đồng cho bất kỳ phút gọi nào sau 200 phút đầu tiên.
-const getPhoneCharges = (minutes) => {
-    let money = 25000;
+const getPhoneCharges = minutes => {
+    const mandatoryFee = 25000;
     if (minutes <= 50) {
-        money += minutes * 600
+        mandatoryFee += minutes * 600
     } else if (minutes <= 200) {
-        money += 50 * 600 + (minutes - 50) * 400
+        mandatoryFee += 50 * 600 + (minutes - 50) * 400
     } else {
-        money += 50 * 600 + 150 * 400 + (minutes - 200) * 200
+        mandatoryFee += 50 * 600 + 150 * 400 + (minutes - 200) * 200
     }
-    console.log('Cước phí phải trả:', money)
+    console.log('Cước phí phải trả:', mandatoryFee)
 }
