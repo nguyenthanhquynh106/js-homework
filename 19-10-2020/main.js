@@ -58,7 +58,7 @@ const maxNumber = (firstNumber, secondNumber, thirdNumber) => {
 // Điểm trung bình >= 5.0 và < 7.0 là hạng C
 // Điểm trung bình < 5.0 là hạng F
 const getRank = (score1, score2, score3) => {
-    let score = (score1 + score2 + sccore3) / 3;
+    let score = (score1 + score2 + score3) / 3;
     if (score >= 9) {
         console.log('Hạng A')
     } else if (score >= 7) {
