@@ -183,3 +183,5 @@ const findMinMaxScore = array => {
     console.log(theBad)
     console.log(theBest)
 }
+
+//Em đã cố để dòng trống cuối file nhưng lưu lại nó vẫn mất nên phải comment thêm dòng này :3
